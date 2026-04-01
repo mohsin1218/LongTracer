@@ -1,0 +1,103 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "longtracer"
+version = "0.1.0"
+description = "RAG verification guardrails — detect hallucinations in LLM responses using hybrid STS + NLI."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "ENDEVSOLS"},
+]
+keywords = ["rag", "llm", "verification", "hallucination", "nli", "citation", "tracing", "guardrails"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+
+dependencies = [
+    "pydantic>=2.0",
+    "sentence-transformers>=5.0",
+    "transformers>=4.50",
+    "numpy>=2.0",
+    "python-dotenv>=1.0",
+]
+
+[project.scripts]
+longtracer = "longtracer.cli:main"
+
+[project.urls]
+Repository = "https://github.com/ENDEVSOLS/LongTracer"
+Documentation = "https://github.com/ENDEVSOLS/LongTracer#readme"
+Changelog = "https://github.com/ENDEVSOLS/LongTracer/blob/main/CHANGELOG.md"
+"Bug Tracker" = "https://github.com/ENDEVSOLS/LongTracer/issues"
+
+[project.optional-dependencies]
+langchain = [
+    "langchain>=1.0",
+    "langchain-core>=1.0",
+    "langchain-community>=0.4",
+]
+llamaindex = [
+    "llama-index-core>=0.10",
+]
+mongo = [
+    "pymongo>=4.6",
+]
+chroma = [
+    "chromadb>=1.0",
+    "langchain-chroma>=1.0",
+    "langchain-huggingface>=1.0",
+]
+postgres = [
+    "psycopg2-binary>=2.9",
+]
+redis = [
+    "redis>=4.0",
+]
+all = [
+    "longtracer[langchain,llamaindex,mongo,chroma,postgres,redis]",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["longtracer"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "longtracer/**",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "pyproject.toml",
+]
+
+# ── Dev tooling ─────────────────────────────────────────────────
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"

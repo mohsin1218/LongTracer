@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+eggs/
+*.whl
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+.uv/
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.kiro/
+
+# ChromaDB vector store (large, auto-generated)
+chroma_db/
+
+# HuggingFace model cache (downloaded on first run)
+.cache/
+
+# Database files
+*.sqlite
+*.sqlite3
+traces.db
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Test / Coverage
+.pytest_cache/
+htmlcov/
+.coverage
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# Distribution
+*.tar.gz
+*.zip
+
+# PDF documents (user-specific, large files)
+Pdf-docs/*.pdf
+
+# Exported traces
+*.json
+!package.json
+
+# Environment
+.env
