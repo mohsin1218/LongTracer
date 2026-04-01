@@ -56,7 +56,6 @@ def print_trace_report(
     print("══════════════════════════════════════════════════════════")
 
     project = root.get("project_name", "longtracer")
-    mongo_db = os.environ.get("MONGODB_DATABASE", "longtracer")
     print(f"  📁 Project: {project}")
     mongo_uri = os.environ.get("MONGODB_URI")
     if mongo_uri:
