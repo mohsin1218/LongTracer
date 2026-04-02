@@ -15,7 +15,7 @@ Older versions are not actively maintained. Please upgrade to the latest release
 Please report security issues privately via one of the following:
 
 - **GitHub Private Vulnerability Reporting** (preferred): [Security Advisories](https://github.com/ENDEVSOLS/LongTracer/security/advisories/new)
-- **Email**: security@endevsols.com
+- **Email**: technology@endevsols.com
 
 ### What to include
 
