@@ -129,7 +129,7 @@ except ImportError:
 try:
     handler = LongTracerAgentHandler(threshold=0.6, verbose=True)
     assert handler.threshold == 0.6
-    assert handler._verbose == True
+    assert handler._verbose is True
     assert handler.name == "LongTracerAgentHandler"
     log(PASS, "Handler instantiation with custom threshold/verbose")
 except Exception as e:
@@ -463,7 +463,7 @@ except ImportError:
 try:
     verifier = LongTracerVerifier(threshold=0.6, verbose=True)
     assert verifier.threshold == 0.6
-    assert verifier.verbose == True
+    assert verifier.verbose is True
     assert verifier._verifier is None  # lazy init
     log(PASS, "LongTracerVerifier instantiation (lazy loaded)")
 except Exception as e:
@@ -595,7 +595,8 @@ try:
         json_output=True,
         threshold=0.5,
     )
-    import io, contextlib
+    import io
+    import contextlib
     buf = io.StringIO()
     with contextlib.redirect_stdout(buf):
         cmd_check(args)
